@@ -4,4 +4,17 @@
 
 {% block body %}
 <h1>ACCUEIL</h1>
+<a href="{{path('app_admin_post')}}">POST</a>
+
+
+            <div class="row mb-5 justify-content-center">
+                {%  for post in posts %}
+                    <div class="col-8 card mb-5 text-center">
+                        <h2 class="card-title">{{post.title}}</h2>
+                        <time datetime={{post.createdAt|date('d-m-Y')}}> Publié le {{post.createdAt|date('d-m-Y')}}  </time>
+                        <p class="card-text">{{post.description}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+      
 {% endblock %}

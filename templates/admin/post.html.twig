@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<h1>ADMIN POST</h1>
+
+        <div class="col-8 mx-auto">
+            {{ form_start(form)}}
+                {{ form_widget(form)}}
+                <button type="submit" class="btn mx-auto col btn-primary">Publier</button>
+            {{ form_end(form)}}
+        </div>
+{% endblock %}
