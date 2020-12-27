@@ -1,7 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Liste des publications{% endblock %}
 
 {% block body %}
-<h1>ADMIN HOME</h1>
+<div class="row justify-content-center">
+    <div class="col-11 mx-auto">
+        <h1 class="text-center mt-5">Liste des publications</h1>
+        <h4 class="text-center mt-3"><a href="{{path('app_home')}}">Accueil</a></h4>
+        <table class="table mt-5">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col-3" >#</th>
+                    <th scope="col-3" >Titre</th>
+                    <th scope="col-3">Publication</th>
+                    <th scope="col-3" >Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                <tr class="text-center">
+                    <td >{{post.id}}</td>
+                    <td >{{post.title}}</td>
+                    <td >{{post.createdAt|date('j-m-Y')}}</td>
+                    <td >
+                        <button class="btn btn-primary mx-auto" href="#">EDITER</button>
+                        {# <button class="btn btn-primary mx-auto" href="#">SUPPRIMER</button> #}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+                
 {% endblock %}

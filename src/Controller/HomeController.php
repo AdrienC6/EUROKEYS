@@ -26,9 +26,10 @@ class HomeController extends AbstractController
     /**
      * @Route("/admin", name="app_admin")
      */
-    public function adminIndex(): Response
+    public function adminIndex(PostRepository $postRepository): Response
     {
-        return $this->render('admin/index.html.twig');
+        $posts = $postRepository->findBy([], ['createdAt' => 'DESC']);
+        return $this->render('admin/index.html.twig', compact('posts'));
     }
 
     /**
