@@ -18,6 +18,10 @@ class AdminController extends AbstractController
      */
     public function adminIndex(PostRepository $postRepository): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+
         $posts = $postRepository->findBy([], ['createdAt' => 'DESC']);
         return $this->render('admin/index.html.twig', compact('posts'));
     }
@@ -27,6 +31,10 @@ class AdminController extends AbstractController
      */
     public function post(Request $request, EntityManagerInterface $em ): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+
         $post = new Post;
 
         $form = $this->createForm(PostType::class, $post);
@@ -47,6 +55,10 @@ class AdminController extends AbstractController
      */
     public function edit(Request $request, Post $post, EntityManagerInterface $em) : Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+
         $form = $this->createForm(PostType::class, $post, [
             'method' =>'PUT'
         ]);
@@ -70,6 +82,10 @@ class AdminController extends AbstractController
      */
     public function delete(Request $request, Post $post, EntityManagerInterface $em) : Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+
         if ($this->isCsrfTokenValid('post_deletion' . $post->getId(), $request->request->get('csrf_token'))) {
             $em->remove($post);
             $em->flush();
