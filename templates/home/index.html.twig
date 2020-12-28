@@ -12,6 +12,8 @@
                         <h2 class="card-title">{{post.title}}</h2>
                         <time datetime={{post.createdAt|date('d-m-Y')}}> Publié le {{post.createdAt|date('d-m-Y')}}  </time>
                         <p class="card-text">{{post.description}}</p>
+                        <img class="w-100"src="{{post.imageFile}}" alt="test" />
+
                     </div>
                 {% endfor %}
             </div>

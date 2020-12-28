@@ -4,10 +4,11 @@ namespace App\Form;
 
 use App\Entity\Post;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PostType extends AbstractType
 {
@@ -23,9 +24,19 @@ class PostType extends AbstractType
             ->add('location', TextType::class, [
                 'label' => 'Localisation (optionnel)'
             ])
+            ->add('country', TextType::class, [
+                'label' => 'Pays (optionnel)'
+            ])
             ->add('createdAt', DateType::class, [
                 'label' => 'Date (optionnel'
             ])
+            ->add('imageFile', VichImageType::class, [
+                'label'=>'Image (JPG ou PNG)',
+                'required' => false,
+                'allow_delete' => false,
+                'delete_label' => 'Supprimer l\'image',
+                'download_uri' => false,
+                            ])
         ;
     }
 

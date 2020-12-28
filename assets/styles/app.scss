@@ -1,1 +1,23 @@
 @import "~bootstrap/scss/bootstrap";
+
+#header-title {
+    font-size : 120px;
+    font-weight : 700;
+    color: transparent;
+    background: url("https://cache.marieclaire.fr/data/photo/w1000_ci/4u/gettyimages-638950624.jpg") repeat;
+    background-position: 40% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    &:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+}
+
+nav {
+    background:#efd2a0;
+}
+
+header {
+    background:#fff;
+}
