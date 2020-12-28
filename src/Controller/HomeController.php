@@ -23,5 +23,13 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', compact('posts'));
     }
 
+    /**
+     * @Route("/concept", name="app_concept")
+     */
+    public function concept(): Response
+    {
+        return $this->render('home/concept.html.twig');
+    }
+
 }
 
