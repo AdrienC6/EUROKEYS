@@ -64,5 +64,19 @@ class AdminController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/admin/edit/{id<[0-9]+>}", name="app_admin_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Post $post, EntityManagerInterface $em) : Response
+    {
+        if ($this->isCsrfTokenValid('post_deletion' . $post->getId(), $request->request->get('csrf_token'))) {
+            $em->remove($post);
+            $em->flush();
+        }
+        
+
+        return $this->redirectToRoute('app_admin');
+    }
 }
 

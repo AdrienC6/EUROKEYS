@@ -23,8 +23,13 @@
                     <td >{{post.title}}</td>
                     <td >{{post.createdAt|date('j-m-Y')}}</td>
                     <td >
-                        <button class="btn btn-primary mx-auto"><a href="{{path('app_admin_edit', {id : post.id})}}">EDITER</a></button>
-                        <button class="btn btn-primary mx-auto" href="#">SUPPRIMER</button>
+                        <a href="{{path('app_admin_edit', {id : post.id})}}" class="btn btn-primary">EDITER</a>
+                        <a href="#" onclick="event.preventDefault(); confirm('Êtes-vous sûr(e) ?')&&document.getElementById('js-post-delete-form').submit();" class="btn btn-primary">Supprimer</a>
+
+                        <form id="js-post-delete-form"action="{{ path('app_admin_delete', {id : post.id}) }}" method="POST" style="display:none;">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token('post_deletion' ~ post.id) }}">
+                            <input type="hidden" name="_method" value="DELETE">
+                        </form>
                     </td>
                 </tr>
                 {% endfor %}
