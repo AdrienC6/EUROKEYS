@@ -23,8 +23,8 @@
                     <td >{{post.title}}</td>
                     <td >{{post.createdAt|date('j-m-Y')}}</td>
                     <td >
-                        <button class="btn btn-primary mx-auto" href="#">EDITER</button>
-                        {# <button class="btn btn-primary mx-auto" href="#">SUPPRIMER</button> #}
+                        <button class="btn btn-primary mx-auto"><a href="{{path('app_admin_edit', {id : post.id})}}">EDITER</a></button>
+                        <button class="btn btn-primary mx-auto" href="#">SUPPRIMER</button>
                     </td>
                 </tr>
                 {% endfor %}
