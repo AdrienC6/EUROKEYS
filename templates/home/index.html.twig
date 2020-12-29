@@ -8,12 +8,11 @@
 
             <div class="row mb-5 mt-5 justify-content-center">
                 {%  for post in posts %}
-                    <div class="col-8 card mb-5 text-center">
+                    <div class="col-11 col-lg-7 card mb-5 text-center">
                         <h2 class="card-title">{{post.title}}</h2>
                         <time datetime={{post.createdAt|date('d-m-Y')}}> Publié le {{post.createdAt|date('d-m-Y')}}  </time>
                         <p class="card-text">{{post.description}}</p>
-                        <img class="w-100"src="{{post.imageFile}}" alt="test" />
-
+                        <img class="card-img-top" src="{{ (post.imageName ? vich_uploader_asset(post) : asset('images/placeholder.jpg'))}}" alt="" />
                     </div>
                 {% endfor %}
             </div>
