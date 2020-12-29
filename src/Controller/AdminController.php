@@ -14,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/admin", name="app_admin")
+     * @Route("/admin/dashboard", name="app_admin")
      */
     public function adminIndex(PostRepository $postRepository): Response
     {

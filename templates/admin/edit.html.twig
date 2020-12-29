@@ -3,12 +3,9 @@
 {% block title %}Modifier la publication{% endblock %}
 
 {% block body %}
-<h1>Modifier la publication</h1>
+<h1 class="text-center mt-3 text-white">Modifier la publication</h1>
 
         <div class="col-8 mx-auto">
-            {{ form_start(form)}}
-                {{ form_widget(form)}}
-                <button type="submit" class="btn mx-auto col btn-primary">Modifier</button>
-            {{ form_end(form)}}
+            {{ include('_partials/_form.html.twig', {submitButtonText: 'Mettre à jour'}) }}
         </div>
 {% endblock %}

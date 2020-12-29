@@ -1,0 +1,16 @@
+{{ form_start(form)}}
+    {{ form_row(form.title)}}
+    <div class="row justify-content-around">
+        <div class="col-6">
+            {{ form_row(form.location)}}
+        </div>
+        <div class="col-6">
+            {{ form_row(form.country)}}
+        </div>
+    </div>
+    {{ form_row(form.description)}}
+    {{ form_row(form.createdAt)}}
+    {{ form_row(form.imageFile)}}
+
+    <input class="btn btn-primary btn-block mb-5" type="submit" value="{{submitButtonText}}" formnovalidate>
+{{ form_end(form)}}

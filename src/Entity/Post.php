@@ -24,13 +24,13 @@ class Post
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Veuillez saisir un titre pour votre publication")
+     * @Assert\NotBlank(message="Veuillez saisir un titre pour votre publication !")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Veuillez saisir une description pour votre publication")
+     * @Assert\NotBlank(message="Veuillez saisir une description pour votre publication !")
      */
     private $description;
 
@@ -54,6 +54,7 @@ class Post
      * 
      * @Vich\UploadableField(mapping="post_image", fileNameProperty="imageName")
      * @Assert\Image(maxSize="2M")
+     * @Assert\NotBlank(message="Veuillez uploader une image pour votre publication !")
      * 
      * @var File|null
      */

@@ -1,7 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 
 #header-title {
-    font-size : 120px;
+    font-size : 80px;
     font-weight : 700;
     color: transparent;
     background: url("https://cache.marieclaire.fr/data/photo/w1000_ci/4u/gettyimages-638950624.jpg") repeat;
@@ -14,10 +14,21 @@
     }
 }
 
+@media screen and (min-width : 992px){
+    #header-title{
+        font-size : 120px;
+    }
+}
+
 nav {
-    background:#efd2a0;
+    background:#fff;
 }
 
 header {
     background:#fff;
+}
+
+
+body {
+    background:#efd2a0;
 }

@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class PostType extends AbstractType
@@ -18,7 +19,7 @@ class PostType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Titre'
             ])
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'label' => 'Description'
             ])
             ->add('location', TextType::class, [
@@ -28,14 +29,15 @@ class PostType extends AbstractType
                 'label' => 'Pays (optionnel)'
             ])
             ->add('createdAt', DateType::class, [
-                'label' => 'Date (optionnel'
+                'label' => 'Date (optionnel)'
             ])
             ->add('imageFile', VichImageType::class, [
                 'label'=>'Image (JPG ou PNG)',
-                'required' => false,
+                'required' => true,
                 'allow_delete' => false,
                 'delete_label' => 'Supprimer l\'image',
                 'download_uri' => false,
+                'imagine_pattern' => 'squared_thumbnail_small',
                             ])
         ;
     }
