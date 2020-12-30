@@ -31,5 +31,12 @@ class HomeController extends AbstractController
         return $this->render('home/concept.html.twig');
     }
 
+    /**
+     * @Route("/article/{id<[0-9]+>}", name="app_article")
+     */
+    public function show(Post $post) : Response
+    {
+        return $this->render('home/show.html.twig', compact('post'));
+    }
 }
 
